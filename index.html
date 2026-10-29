@@ -1,0 +1,2466 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+        <title>Happy Birthday, Mama! 🎂</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --bg1: #2b0a3d;
+                --bg2: #6a1b4d;
+                --bg3: #c2185b;
+                --gold: #ffd97a;
+                --rose: #ff8fb1;
+                --text: #fff6f0;
+                --card: rgba(255, 255, 255, 0.1);
+                box-sizing: border-box;
+                padding-top: env(safe-area-inset-top, 0px);
+                padding-bottom: env(safe-area-inset-bottom, 0px);
+                color-scheme: dark;
+            }
+            html {
+                scroll-padding-top: env(safe-area-inset-top, 0px);
+                scroll-behavior: smooth;
+            }
+            * {
+                box-sizing: border-box;
+                margin: 0;
+            }
+            body {
+                font-family: "Poppins", system-ui, sans-serif;
+                color: var(--text);
+                min-height: 100vh;
+                overflow-x: hidden;
+                background: linear-gradient(
+                    135deg,
+                    var(--bg1),
+                    var(--bg2),
+                    var(--bg3),
+                    var(--bg1)
+                );
+                background-size: 300% 300%;
+                animation: bg 14s ease infinite;
+            }
+            @keyframes bg {
+                0%,
+                100% {
+                    background-position: 0 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+            }
+            #fx {
+                position: fixed;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 60;
+            }
+            .layer {
+                position: fixed;
+                inset: 0;
+                pointer-events: none;
+                overflow: hidden;
+                z-index: 1;
+            }
+            .stars i {
+                position: absolute;
+                width: 3px;
+                height: 3px;
+                border-radius: 50%;
+                background: #fff;
+                animation: tw 3s infinite ease-in-out;
+            }
+            @keyframes tw {
+                0%,
+                100% {
+                    opacity: 0.1;
+                    transform: scale(0.6);
+                }
+                50% {
+                    opacity: 1;
+                    transform: scale(1.4);
+                }
+            }
+            .balloon {
+                pointer-events: auto;
+                cursor: pointer;
+                position: absolute;
+                bottom: -160px;
+                width: 54px;
+                height: 68px;
+                border-radius: 50% 50% 48% 48%;
+                opacity: 0.8;
+                animation: rise linear forwards;
+            }
+            .balloon:after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 100%;
+                width: 1px;
+                height: 50px;
+                background: rgba(255, 255, 255, 0.5);
+            }
+            .balloon:before {
+                content: "";
+                position: absolute;
+                left: 14px;
+                top: 10px;
+                width: 10px;
+                height: 16px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.45);
+                transform: rotate(25deg);
+            }
+            @keyframes rise {
+                to {
+                    transform: translateY(-125vh) translateX(var(--dx));
+                }
+            }
+            .fall {
+                position: absolute;
+                top: -40px;
+                animation: fall linear forwards;
+            }
+            @keyframes fall {
+                to {
+                    transform: translateY(112vh) translateX(var(--dx))
+                        rotate(360deg);
+                }
+            }
+            #gate {
+                position: fixed;
+                inset: 0;
+                z-index: 100;
+                display: grid;
+                place-items: center;
+                text-align: center;
+                padding: 24px;
+                background: radial-gradient(circle, #4a1260, #1a0626);
+                transition:
+                    opacity 0.9s,
+                    visibility 0.9s;
+            }
+            #gate.gone {
+                opacity: 0;
+                visibility: hidden;
+            }
+            #gate h2 {
+                font-family: "Great Vibes", cursive;
+                font-size: clamp(2.4rem, 9vw, 4rem);
+                color: var(--gold);
+                margin-bottom: 8px;
+            }
+            #gate p {
+                opacity: 0.8;
+                margin-bottom: 26px;
+            }
+            .gift {
+                font-size: 5rem;
+                animation: bob 1.6s infinite ease-in-out;
+                display: block;
+                margin-bottom: 10px;
+            }
+            @keyframes bob {
+                50% {
+                    transform: translateY(-14px) rotate(6deg);
+                }
+            }
+            .btn {
+                border: 0;
+                cursor: pointer;
+                font:
+                    600 0.95rem "Poppins",
+                    sans-serif;
+                padding: 13px 26px;
+                border-radius: 50px;
+                color: #3a0b2b;
+                background: linear-gradient(135deg, var(--gold), #ffb36b);
+                box-shadow: 0 8px 28px rgba(255, 200, 120, 0.35);
+                transition: transform 0.2s;
+            }
+            .btn:hover {
+                transform: translateY(-3px) scale(1.04);
+            }
+            .btn.ghost {
+                background: var(--card);
+                color: var(--text);
+                box-shadow: none;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                backdrop-filter: blur(8px);
+            }
+            main {
+                position: relative;
+                z-index: 2;
+                max-width: 940px;
+                margin: 0 auto;
+                padding: 50px 20px 90px;
+                text-align: center;
+            }
+            .crown {
+                font-size: 3.2rem;
+                animation: bob 2.2s infinite;
+            }
+            h1 {
+                font-family: "Great Vibes", cursive;
+                font-weight: 400;
+                font-size: clamp(3.2rem, 13vw, 6.4rem);
+                line-height: 1.05;
+                background: linear-gradient(
+                    90deg,
+                    #fff,
+                    var(--gold),
+                    var(--rose),
+                    #fff
+                );
+                background-size: 200%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                animation: shine 5s linear infinite;
+                filter: drop-shadow(0 4px 18px rgba(255, 150, 180, 0.4));
+            }
+            @keyframes shine {
+                to {
+                    background-position: 200% 0;
+                }
+            }
+            .name {
+                font-size: 1.4rem;
+                letter-spacing: 0.3em;
+                text-transform: uppercase;
+                color: var(--gold);
+                margin: 6px 0 10px;
+            }
+            #quote {
+                min-height: 3.4em;
+                max-width: 560px;
+                margin: 0 auto 26px;
+                font-style: italic;
+                font-weight: 300;
+                opacity: 0.9;
+                transition: opacity 0.6s;
+            }
+            .polas {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 26px;
+                justify-content: center;
+                margin: 18px 0 44px;
+            }
+            .pola {
+                width: min(220px, 76vw);
+                background: #fffaf3;
+                color: #3a0b2b;
+                padding: 12px 12px 14px;
+                border-radius: 6px;
+                box-shadow: 0 14px 34px #0007;
+                cursor: pointer;
+                position: relative;
+                transition: transform 0.4s;
+                transform: rotate(var(--r));
+            }
+            .pola:nth-child(2) {
+                margin-top: -14px;
+            }
+            .pola:hover {
+                transform: rotate(0) scale(1.07);
+                z-index: 3;
+            }
+            .pola:before {
+                content: "";
+                position: absolute;
+                top: -12px;
+                left: 50%;
+                width: 70px;
+                height: 22px;
+                transform: translateX(-50%) rotate(-3deg);
+                background: rgba(255, 217, 122, 0.75);
+            }
+            .pola .ph {
+                aspect-ratio: 1;
+                background: linear-gradient(135deg, #f6d3e0, #e9c9ff);
+                display: grid;
+                place-items: center;
+                overflow: hidden;
+                font-size: 0.85rem;
+                color: #7a3a66;
+            }
+            .pola .ph img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .pola .ph b {
+                display: block;
+                font-size: 2.4rem;
+            }
+            .pola .cap {
+                font-family: "Great Vibes", cursive;
+                font-size: 1.7rem;
+                margin-top: 8px;
+            }
+            h2.sec {
+                font-family: "Great Vibes", cursive;
+                font-weight: 400;
+                font-size: clamp(2.2rem, 8vw, 3.2rem);
+                color: var(--gold);
+                margin-bottom: 18px;
+            }
+            .letter {
+                max-width: 680px;
+                margin: 0 auto 46px;
+                padding: 30px 26px;
+                text-align: left;
+                border-radius: 22px;
+                background: var(--card);
+                border: 1px solid rgba(255, 217, 122, 0.45);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 0 40px rgba(255, 150, 180, 0.18);
+            }
+            .letter .dear {
+                font-family: "Great Vibes", cursive;
+                font-size: 2.2rem;
+                color: var(--gold);
+            }
+            #msg {
+                white-space: pre-line;
+                line-height: 1.85;
+                font-weight: 300;
+                min-height: 12em;
+            }
+            #msg:after {
+                content: "|";
+                animation: blink 1s infinite;
+            }
+            @keyframes blink {
+                50% {
+                    opacity: 0;
+                }
+            }
+            .cake {
+                margin: 6px auto;
+                width: 210px;
+                cursor: pointer;
+            }
+            .flame {
+                transform-origin: 50% 100%;
+                animation: flick 0.25s infinite alternate;
+                transition: opacity 0.4s;
+            }
+            .flame.off {
+                opacity: 0;
+            }
+            @keyframes flick {
+                from {
+                    transform: scale(1, 1) rotate(-3deg);
+                }
+                to {
+                    transform: scale(0.88, 1.12) rotate(3deg);
+                }
+            }
+            .hint {
+                font-size: 0.85rem;
+                opacity: 0.7;
+                margin-bottom: 34px;
+            }
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 16px;
+                margin: 10px 0 40px;
+            }
+            .card {
+                background: var(--card);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                backdrop-filter: blur(10px);
+                border-radius: 20px;
+                padding: 24px 18px;
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.8s;
+            }
+            .card.in {
+                opacity: 1;
+                transform: none;
+            }
+            .card:hover {
+                transform: translateY(-6px) rotate(-1deg);
+                border-color: var(--gold);
+            }
+            .card .e {
+                font-size: 2.2rem;
+                display: block;
+                margin-bottom: 8px;
+            }
+            .card h3 {
+                color: var(--gold);
+                font-weight: 600;
+                margin-bottom: 6px;
+            }
+            .card p {
+                font-weight: 300;
+                font-size: 0.93rem;
+                line-height: 1.65;
+            }
+            .jar {
+                margin: 0 auto 46px;
+                max-width: 560px;
+            }
+            #note {
+                margin-top: 18px;
+                min-height: 5.5em;
+                padding: 20px;
+                border-radius: 18px;
+                background: #fffaf3;
+                color: #3a0b2b;
+                font-size: 1.05rem;
+                line-height: 1.6;
+                box-shadow: 0 12px 30px #0006;
+                display: none;
+            }
+            #note.show {
+                display: block;
+                animation: pop 0.5s;
+            }
+            @keyframes pop {
+                from {
+                    transform: scale(0.6) rotate(-4deg);
+                    opacity: 0;
+                }
+            }
+            .promises {
+                list-style: none;
+                max-width: 560px;
+                margin: 0 auto 46px;
+                text-align: left;
+                padding: 0;
+            }
+            .promises li {
+                padding: 12px 16px;
+                margin-bottom: 10px;
+                border-radius: 14px;
+                background: var(--card);
+                border-left: 4px solid var(--gold);
+                font-weight: 300;
+                opacity: 0;
+                transform: translateX(-24px);
+                transition: all 0.7s;
+            }
+            .promises li.in {
+                opacity: 1;
+                transform: none;
+            }
+            .actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                justify-content: center;
+            }
+            .from {
+                font-family: "Great Vibes", cursive;
+                font-size: 2.4rem;
+                color: var(--gold);
+                margin-top: 34px;
+            }
+            .big {
+                font-size: 3rem;
+                margin-top: 14px;
+                animation: beat 1.2s infinite;
+            }
+            dialog {
+                border: 0;
+                border-radius: 22px;
+                padding: 24px;
+                width: min(92vw, 440px);
+                background: #2b0a3d;
+                color: var(--text);
+                box-shadow: 0 20px 60px #000a;
+            }
+            dialog::backdrop {
+                background: rgba(0, 0, 0, 0.6);
+            }
+            dialog label {
+                display: block;
+                font-size: 0.85rem;
+                margin: 12px 0 4px;
+                color: var(--gold);
+            }
+            dialog input,
+            dialog textarea {
+                width: 100%;
+                padding: 10px 12px;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                background: rgba(255, 255, 255, 0.08);
+                color: #fff;
+                font: inherit;
+            }
+            dialog textarea {
+                min-height: 150px;
+                resize: vertical;
+            }
+            dialog .row {
+                display: flex;
+                gap: 10px;
+                margin-top: 18px;
+                justify-content: flex-end;
+                flex-wrap: wrap;
+            }
+            :root[data-theme="gold"] {
+                --bg1: #1d1408;
+                --bg2: #5a3a0a;
+                --bg3: #b8860b;
+                --gold: #fff0b3;
+                --rose: #ffd27a;
+            }
+            :root[data-theme="ocean"] {
+                --bg1: #04122e;
+                --bg2: #0b3a6b;
+                --bg3: #1593a8;
+                --gold: #ffe9a8;
+                --rose: #8ff0ff;
+            }
+            #balloons {
+                z-index: 55;
+            }
+            .orbs i {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(70px);
+                opacity: 0.35;
+                animation: drift 18s ease-in-out infinite alternate;
+            }
+            @keyframes drift {
+                to {
+                    transform: translate(var(--mx), var(--my)) scale(1.3);
+                }
+            }
+            #prog {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 4px;
+                width: 0;
+                z-index: 70;
+                background: linear-gradient(90deg, var(--rose), var(--gold));
+                box-shadow: 0 0 12px var(--gold);
+            }
+            .shoot {
+                position: absolute;
+                width: 120px;
+                height: 2px;
+                background: linear-gradient(90deg, #fff, transparent);
+                transform: rotate(-35deg);
+                animation: shoot 1.4s ease-out forwards;
+            }
+            @keyframes shoot {
+                from {
+                    opacity: 1;
+                    translate: 0 0;
+                }
+                to {
+                    opacity: 0;
+                    translate: -420px 300px;
+                }
+            }
+            #cd {
+                position: fixed;
+                inset: 0;
+                z-index: 90;
+                display: none;
+                place-items: center;
+                font-family: "Great Vibes", cursive;
+                font-size: clamp(7rem, 40vw, 16rem);
+                color: var(--gold);
+                background: rgba(20, 0, 30, 0.65);
+                text-shadow: 0 0 60px var(--rose);
+            }
+            #cd.on {
+                display: grid;
+            }
+            #cd span {
+                animation: cdz 0.9s ease-out;
+            }
+            @keyframes cdz {
+                from {
+                    transform: scale(2.6);
+                    opacity: 0;
+                }
+                to {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+            .show {
+                position: relative;
+                width: min(560px, 100%);
+                aspect-ratio: 4/3;
+                margin: 0 auto 46px;
+                border-radius: 24px;
+                overflow: hidden;
+                border: 3px solid var(--gold);
+                box-shadow: 0 0 50px rgba(255, 200, 120, 0.3);
+                background: var(--card);
+                display: grid;
+                place-items: center;
+                padding: 16px;
+            }
+            .show img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 1.4s;
+            }
+            .show img.on {
+                opacity: 1;
+                animation: kb 7s ease-out forwards;
+            }
+            @keyframes kb {
+                from {
+                    transform: scale(1);
+                }
+                to {
+                    transform: scale(1.18) translate(-2%, -2%);
+                }
+            }
+            #story {
+                position: fixed;
+                inset: 0;
+                z-index: 95;
+                background: #0b0212;
+                display: none;
+                place-items: center;
+                text-align: center;
+                padding: 30px;
+                transition: opacity 1.5s;
+            }
+            #story.on {
+                display: grid;
+            }
+            #story.fade {
+                opacity: 0;
+            }
+            .sbg {
+                position: absolute;
+                inset: 0;
+                background-size: cover;
+                background-position: center;
+                opacity: 0;
+                filter: brightness(0.42) blur(1px);
+                transition: opacity 2s;
+            }
+            .sbg.on {
+                opacity: 1;
+                animation: kb 9s ease-out forwards;
+            }
+            .stxt {
+                position: relative;
+                z-index: 1;
+                font-family: "Great Vibes", cursive;
+                font-size: clamp(2rem, 7.5vw, 3.6rem);
+                color: #fff;
+                text-shadow: 0 2px 22px #000;
+                max-width: 760px;
+                line-height: 1.35;
+            }
+            .stxt p {
+                opacity: 0;
+                transform: translateY(14px);
+                transition: all 1.8s;
+                margin: 6px 0;
+            }
+            .stxt p.in {
+                opacity: 1;
+                transform: none;
+            }
+            #skip {
+                position: absolute;
+                bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+                right: 18px;
+                z-index: 2;
+                padding: 8px 18px;
+                font-size: 0.8rem;
+            }
+            .ff {
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #ffe9a8;
+                box-shadow: 0 0 14px 5px rgba(255, 217, 122, 0.7);
+                animation: ffl 9s ease-in-out infinite;
+                opacity: 0;
+            }
+            @keyframes ffl {
+                0% {
+                    opacity: 0;
+                    transform: translate(0, 0);
+                }
+                30% {
+                    opacity: 0.9;
+                }
+                100% {
+                    opacity: 0;
+                    transform: translate(40px, -120px);
+                }
+            }
+            .lantern {
+                position: absolute;
+                bottom: -60px;
+                width: 26px;
+                height: 34px;
+                border-radius: 8px 8px 10px 10px;
+                background: radial-gradient(#fff3b0, #ff9d3c);
+                box-shadow: 0 0 28px 10px rgba(255, 170, 60, 0.55);
+                animation: rise linear forwards;
+                opacity: 0.85;
+            }
+            h1,
+            #gate h2,
+            h2.sec,
+            .letter .dear,
+            .pola .cap,
+            .from,
+            .stxt,
+            #cd {
+                font-family: "Playfair Display", Georgia, serif !important;
+                font-weight: 700;
+            }
+            h1 {
+                font-size: clamp(2.4rem, 10.5vw, 4.8rem) !important;
+                line-height: 1.15;
+            }
+            #gate h2 {
+                font-size: clamp(1.8rem, 7vw, 2.8rem) !important;
+            }
+            h2.sec {
+                font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+                font-weight: 600;
+            }
+            .letter .dear {
+                font-size: 1.7rem !important;
+                font-weight: 600;
+            }
+            .pola .cap {
+                font-size: 1.15rem !important;
+                font-weight: 600;
+            }
+            .from {
+                font-size: 1.7rem !important;
+            }
+            .stxt {
+                font-size: clamp(1.5rem, 5.6vw, 2.3rem) !important;
+                font-weight: 600;
+                line-height: 1.5;
+            }
+            #cd {
+                font-size: clamp(6rem, 34vw, 13rem) !important;
+            }
+            #msg {
+                font-size: 1.1rem;
+                font-weight: 400;
+                line-height: 1.9;
+            }
+            .card p,
+            .promises li,
+            #quote,
+            #note,
+            #gate p {
+                font-weight: 400;
+            }
+            .card p {
+                font-size: 1rem;
+            }
+            .promises li {
+                font-size: 1.05rem;
+            }
+            #quote {
+                font-size: 1.05rem;
+                font-style: normal;
+            }
+            .name {
+                font-size: 1.15rem;
+                font-weight: 600;
+            }
+            .wishes {
+                max-width: 520px;
+                margin: -10px auto 40px;
+                display: none;
+            }
+            .wishes.show {
+                display: block;
+            }
+            .wishes p {
+                padding: 12px 16px;
+                margin-bottom: 8px;
+                border-radius: 14px;
+                background: var(--card);
+                border-left: 4px solid var(--gold);
+                text-align: left;
+                animation: pop 0.6s both;
+            }
+            .wishes p:nth-child(5) {
+                animation-delay: 1.6s;
+            }
+            .wishes p:nth-child(6) {
+                animation-delay: 2s;
+            }
+            .wishes p:nth-child(2) {
+                animation-delay: 0.4s;
+            }
+            .wishes p:nth-child(3) {
+                animation-delay: 0.8s;
+            }
+            .wishes p:nth-child(4) {
+                animation-delay: 1.2s;
+            }
+            .route {
+                max-width: 560px;
+                margin: 0 auto 46px;
+            }
+            .route p {
+                margin-top: 6px;
+                font-size: 1.05rem;
+            }
+            .hug {
+                position: fixed;
+                bottom: -40px;
+                font-size: 2rem;
+                z-index: 58;
+                pointer-events: none;
+                animation: rise 4.5s ease-out both;
+            }
+            #toast {
+                position: fixed;
+                left: 50%;
+                bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+                transform: translate(-50%, 40px);
+                opacity: 0;
+                z-index: 80;
+                background: #fffaf3;
+                color: #3a0b2b;
+                padding: 14px 22px;
+                border-radius: 50px;
+                font-weight: 600;
+                box-shadow: 0 10px 30px #0008;
+                transition: all 0.5s;
+                max-width: 90vw;
+                text-align: center;
+            }
+            #toast.on {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+            @keyframes beat {
+                0%,
+                40%,
+                100% {
+                    transform: scale(1);
+                }
+                20% {
+                    transform: scale(1.3);
+                }
+                60% {
+                    transform: scale(1.18);
+                }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    animation-duration: 0.01s !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="fx"></canvas>
+        <div class="layer stars" id="stars"></div>
+        <div class="layer orbs">
+            <i
+                style="
+                    width: 340px;
+                    height: 340px;
+                    left: -90px;
+                    top: 8%;
+                    background: var(--rose);
+                    --mx: 220px;
+                    --my: 140px;
+                "
+            ></i
+            ><i
+                style="
+                    width: 300px;
+                    height: 300px;
+                    right: -80px;
+                    top: 45%;
+                    background: #9b6bff;
+                    --mx: -200px;
+                    --my: -120px;
+                "
+            ></i
+            ><i
+                style="
+                    width: 280px;
+                    height: 280px;
+                    left: 30%;
+                    bottom: -100px;
+                    background: var(--gold);
+                    --mx: 120px;
+                    --my: -160px;
+                "
+            ></i>
+        </div>
+        <div id="prog"></div>
+        <div id="toast"></div>
+        <div id="story">
+            <div class="sbg"></div>
+            <div class="stxt"></div>
+            <button class="btn ghost" id="skip">Skip ›</button>
+        </div>
+        <div id="cd"><span></span></div>
+        <div class="layer" id="balloons"></div>
+        <div class="layer" id="rain"></div>
+
+        <section id="gate">
+            <div>
+                <span class="gift">🎁</span>
+                <h2>Mama, this is for you</h2>
+                <p>
+                    Made with all my love.<br />🔊 Turn your volume up and take
+                    a deep breath.
+                </p>
+                <button class="btn" id="open">Open Your Surprise</button>
+            </div>
+        </section>
+
+        <main>
+            <div class="crown">👑</div>
+            <h1>Happy Birthday</h1>
+            <div class="name" id="name">Mama</div>
+            <p id="quote"></p>
+
+            <div class="polas" id="polas">
+                <div class="pola" data-i="0" style="--r: -6deg">
+                    <div class="ph">
+                        <span><b>📷</b>Tap to add photo</span>
+                    </div>
+                    <div class="cap">Salamat, Ma</div>
+                </div>
+                <div class="pola" data-i="1" style="--r: 2deg">
+                    <div class="ph">
+                        <span><b>📷</b>Tap to add photo</span>
+                    </div>
+                    <div class="cap">My Mama, my hero</div>
+                </div>
+                <div class="pola" data-i="2" style="--r: 6deg">
+                    <div class="ph">
+                        <span><b>📷</b>Tap to add photo</span>
+                    </div>
+                    <div class="cap">Palangga tika</div>
+                </div>
+            </div>
+
+            <h2 class="sec">A Letter For You</h2>
+            <div class="letter">
+                <div class="dear" id="dear">Dear Mama,</div>
+                <p id="msg"></p>
+            </div>
+
+            <h2 class="sec">Distance Can’t Stop My Love</h2>
+            <div class="route">
+                <svg viewBox="0 0 400 150" width="100%" aria-label="Me to you">
+                    <path
+                        id="rp"
+                        d="M60 100 Q200 -10 340 100"
+                        fill="none"
+                        stroke="#ffd97a"
+                        stroke-width="2"
+                        stroke-dasharray="6 8"
+                        opacity=".8"
+                    />
+                    <circle cx="60" cy="100" r="9" fill="#ff8fb1" />
+                    <circle cx="340" cy="100" r="9" fill="#ffd97a" />
+                    <text
+                        x="60"
+                        y="132"
+                        fill="#fff"
+                        font-size="15"
+                        text-anchor="middle"
+                        font-family="Poppins,sans-serif"
+                    >
+                        Me
+                    </text>
+                    <text
+                        x="340"
+                        y="132"
+                        fill="#fff"
+                        font-size="15"
+                        text-anchor="middle"
+                        font-family="Poppins,sans-serif"
+                    >
+                        You
+                    </text>
+                    <text font-size="24" text-anchor="middle">
+                        💖
+                        <animateMotion dur="4s" repeatCount="indefinite">
+                            <mpath href="#rp" />
+                        </animateMotion>
+                    </text>
+                    <text font-size="24" text-anchor="middle">
+                        💕
+                        <animateMotion
+                            dur="4s"
+                            begin="2s"
+                            repeatCount="indefinite"
+                        >
+                            <mpath href="#rp" />
+                        </animateMotion>
+                    </text>
+                </svg>
+                <p>
+                    I may be far, Ma, but every thought, every prayer, and every
+                    “thank you” travels straight to you.
+                </p>
+            </div>
+            <h2 class="sec">Make a Wish</h2>
+            <div class="cake" id="cake">
+                <svg
+                    viewBox="0 0 210 190"
+                    width="210"
+                    aria-label="Birthday cake"
+                >
+                    <g>
+                        <g transform="translate(60,22)">
+                            <ellipse
+                                class="flame"
+                                cx="0"
+                                cy="8"
+                                rx="6"
+                                ry="11"
+                                fill="#ffb300"
+                            />
+                            <ellipse
+                                class="flame"
+                                cx="0"
+                                cy="11"
+                                rx="3"
+                                ry="6"
+                                fill="#fff3b0"
+                            />
+                        </g>
+                        <g transform="translate(105,14)">
+                            <ellipse
+                                class="flame"
+                                cx="0"
+                                cy="8"
+                                rx="6"
+                                ry="11"
+                                fill="#ffb300"
+                            />
+                            <ellipse
+                                class="flame"
+                                cx="0"
+                                cy="11"
+                                rx="3"
+                                ry="6"
+                                fill="#fff3b0"
+                            />
+                        </g>
+                        <g transform="translate(150,22)">
+                            <ellipse
+                                class="flame"
+                                cx="0"
+                                cy="8"
+                                rx="6"
+                                ry="11"
+                                fill="#ffb300"
+                            />
+                            <ellipse
+                                class="flame"
+                                cx="0"
+                                cy="11"
+                                rx="3"
+                                ry="6"
+                                fill="#fff3b0"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        x="56"
+                        y="36"
+                        width="8"
+                        height="34"
+                        rx="3"
+                        fill="#7fd6ff"
+                    />
+                    <rect
+                        x="101"
+                        y="28"
+                        width="8"
+                        height="42"
+                        rx="3"
+                        fill="#ff8fb1"
+                    />
+                    <rect
+                        x="146"
+                        y="36"
+                        width="8"
+                        height="34"
+                        rx="3"
+                        fill="#b9ff8f"
+                    />
+                    <rect
+                        x="35"
+                        y="68"
+                        width="140"
+                        height="42"
+                        rx="12"
+                        fill="#ff8fb1"
+                    />
+                    <path
+                        d="M35 80q12 16 24 0t24 0 24 0 24 0 24 0 21 0v-4q0-8-8-8H43q-8 0-8 8z"
+                        fill="#fff"
+                    />
+                    <rect
+                        x="15"
+                        y="108"
+                        width="180"
+                        height="56"
+                        rx="14"
+                        fill="#c2185b"
+                    />
+                    <path
+                        d="M15 120q15 18 30 0t30 0 30 0 30 0 30 0 30 0v-6q0-6-6-6H21q-6 0-6 6z"
+                        fill="#ffd97a"
+                    />
+                    <rect
+                        x="5"
+                        y="160"
+                        width="200"
+                        height="14"
+                        rx="7"
+                        fill="#ffe9c9"
+                    />
+                </svg>
+            </div>
+            <p class="hint" id="hint">
+                Tap the cake to blow out the candles 🕯️
+            </p>
+
+            <div id="wishes" class="wishes">
+                <p>🌟 May you always be healthy and strong.</p>
+                <p>💛 May your heart always be peaceful and happy.</p>
+                <p>🙏 May God bless you every single day.</p>
+                <p>
+                    🌸 May everything you gave to others return to you tenfold.
+                </p>
+                <p>
+                    ✨ May you never feel alone, because I am always with you in
+                    my heart.
+                </p>
+                <p>🏡 And may we be together again very soon.</p>
+            </div>
+            <h2 class="sec">Why I’m Grateful For You</h2>
+            <div class="cards" id="cards"></div>
+
+            <h2 class="sec">My Promises To You</h2>
+            <ul class="promises" id="promises"></ul>
+
+            <div class="jar">
+                <h2 class="sec">Love Notes Jar 💌</h2>
+                <button class="btn" id="jar">Open a Love Note</button>
+                <div id="note"></div>
+            </div>
+
+            <div class="actions">
+                <button class="btn" id="celebrate">🎉 Celebrate!</button>
+                <button class="btn ghost" id="music">🎵 Play Song</button>
+                <button class="btn" id="hug">🤗 Send a Hug</button>
+                <button class="btn ghost" id="replay">💌 Replay Story</button>
+                <button class="btn ghost" id="theme">🎨 Theme</button>
+                <button class="btn ghost" id="edit">✏️ Personalize</button>
+            </div>
+            <h2 class="sec">Daghang salamat, Ma.<br />Happy Birthday. 💖</h2>
+            <canvas
+                id="hc"
+                width="320"
+                height="300"
+                style="max-width: 100%"
+            ></canvas>
+            <div class="big">💖</div>
+            <div class="from" id="from">With all my love</div>
+        </main>
+
+        <dialog id="dlg">
+            <h3 style="color: var(--gold)">Personalize</h3>
+            <label>Her name / nickname</label
+            ><input id="iName" maxlength="30" /> <label>Letter</label
+            ><textarea id="iMsg" maxlength="1500"></textarea> <label>From</label
+            ><input id="iFrom" maxlength="40" />
+            <div class="row">
+                <button class="btn ghost" id="clr">Remove photos</button
+                ><button class="btn ghost" id="cancel">Cancel</button
+                ><button class="btn" id="save">Save</button>
+            </div>
+        </dialog>
+        <input type="file" id="pick" accept="image/*" hidden />
+
+        <script>
+            const $ = (s) => document.querySelector(s);
+            const CARDS = [
+                [
+                    "💖",
+                    "Your Endless Love",
+                    "Thank you for loving me on my best days and my worst. Your love is my safe place.",
+                ],
+                [
+                    "🌙",
+                    "Your Sleepless Nights",
+                    "All the nights you stayed awake worrying, praying, and caring for us did not go unnoticed.",
+                ],
+                [
+                    "🍲",
+                    "Your Cooking & Care",
+                    "Every meal you made was more than food. It was love served on a plate.",
+                ],
+                [
+                    "🌟",
+                    "Your Sacrifices",
+                    "You gave up so much so we could have more. I will never forget it.",
+                ],
+                [
+                    "🌷",
+                    "Your Strength",
+                    "You taught me to keep going, to stay humble, and to be kind to everyone.",
+                ],
+                [
+                    "🙏",
+                    "Your Prayers",
+                    "Whatever good happens in my life, I know your prayers are behind it.",
+                ],
+            ];
+            const PROMISES = [
+                "I will always make time for you, no matter how busy life gets.",
+                "I will make you proud with everything I do.",
+                "I will take care of you the way you took care of me.",
+                "I will say “I love you” more often, not just today.",
+                "I will be the kind of person you raised me to be.",
+            ];
+            const NOTES = [
+                "You are the heart of our home. Without you, nothing would feel the same. 🏡",
+                "Thank you for believing in me when I didn’t believe in myself. 💪",
+                "Your smile is my favorite sight in the whole world. 😊",
+                "I am who I am because of you. 💕",
+                "Home is wherever you are, Mama. 🌸",
+                "You deserve all the rest, joy, and love today and always. 🌹",
+                "I’m sorry for the times I made things hard. Thank you for never giving up on me. 🤍",
+                "You are my first friend, my first teacher, and my forever hero. 🦸‍♀️",
+                "May God bless you with good health and a happy heart. 🙌",
+                "Mama, you are the best gift I was ever given. 🎁",
+            ];
+            const QUOTES = [
+                "“A mother’s love is the first home we ever know.”",
+                "“Behind every good child is a mother who never gave up.”",
+                "“Thank you for being my strength when I had none.”",
+                "“You are loved more than you will ever know.”",
+            ];
+            const DEF = {
+                name: "Mama",
+                from: "With all my love, your child",
+                photos: ["", "", ""],
+                msg: "Today is your day, and I want you to know how grateful I am.\n\nThank you for every sacrifice, every prayer, every sleepless night, and every hug that made me feel safe. You taught me how to be strong, how to be kind, and how to keep going even when it’s hard.\n\nI know I am not perfect, but your love never changed. I hope this day gives back a little of the joy you have given me my whole life.\n\nHappy Birthday, Mama. I love you more than words can say. 💕",
+            };
+            let S = JSON.parse(JSON.stringify(DEF));
+            try {
+                const x = localStorage.getItem("bdayMom2");
+                if (x) S = { ...S, ...JSON.parse(x) };
+            } catch (e) {}
+            CARDS.length = 0;
+            CARDS.push(
+                [
+                    "💖",
+                    "Thank You For Life",
+                    "You carried me, gave birth to me, and loved me before you even knew who I would become.",
+                ],
+                [
+                    "🌙",
+                    "Thank You For Your Sleepless Nights",
+                    "Every night you stayed awake worrying, praying, and caring for me. I felt it, even when I didn’t say it.",
+                ],
+                [
+                    "🍲",
+                    "Thank You For Every Meal",
+                    "You made sure I never went hungry, even when you skipped your own meal.",
+                ],
+                [
+                    "💪",
+                    "Thank You For Your Sacrifices",
+                    "You gave up so much so that I could study and dream. I will never forget it.",
+                ],
+                [
+                    "🙏",
+                    "Thank You For Your Prayers",
+                    "Wherever I go, I know your prayers are walking with me.",
+                ],
+                [
+                    "🏡",
+                    "Thank You For Being My Home",
+                    "Even from far away in Dujali, you are still the safest place my heart knows.",
+                ],
+            );
+            PROMISES.length = 0;
+            PROMISES.push(
+                "I will call you more often, even when I am busy.",
+                "I will come to see you in Dujali and hug you tight.",
+                "I will study hard and make you proud.",
+                "I will take care of you the way you took care of me.",
+                "I will never forget how much you sacrificed for me.",
+            );
+            NOTES.length = 0;
+            NOTES.push(
+                "Thank you, Ma, for everything you have done for me. I will never forget it. 💖",
+                "Even if I am in Panabo and you are in Dujali, you are always in my heart. 🏡",
+                "Because of your sacrifices, I can chase my dreams. Thank you, Mama. 🎓",
+                "I miss your cooking, your voice, and your hugs. 🍲",
+                "You are the strongest woman I know. Thank you for never giving up on me. 💪",
+                "Every time I feel tired from studying, I remember you, and I keep going. 📚",
+                "I am sorry for the times I forgot to say thank you. I am saying it now, with all my heart. 🥹",
+                "No distance can ever make me love you less. 🌸",
+                "May God keep you healthy, happy, and safe, always. 🙌",
+                "You are the greatest blessing in my life. Daghang salamat, Ma! 🎁",
+            );
+            QUOTES.length = 0;
+            QUOTES.push(
+                "“Thank you for every sacrifice you made for me.”",
+                "“Distance can’t break the love of a mother and her child.”",
+                "“Whatever I become, I owe it to you, Mama.”",
+                "“Daghang salamat, Ma. Palangga tika.”",
+            );
+            DEF.msg = `Happy Birthday, Ma! I wish I could be there with you today. Even though I am here in Panabo and you are in Dujali, you are in my heart every single day.
+
+Thank you for giving me life. Thank you for every sacrifice, every sleepless night, every meal you cooked, and every prayer you whispered for me. I know there were days you gave up your own comfort so that I could have mine.
+
+Thank you for believing in me when I didn’t believe in myself. Thank you for teaching me to be strong, humble, and kind. Whatever I achieve in my studies and in life, it is because of you.
+
+I am sorry for the times I wasn’t there, and for the times I forgot to say thank you. Please know that I never forget what you have done for me.
+
+One day, I promise, I will make all your sacrifices worth it. Until then, please take care of yourself and rest. You deserve it.
+
+Happy Birthday, Mama. Daghang salamat sa tanan. I love you so much. 💕`;
+            DEF.from = "From Panabo, with all my love";
+            try {
+                const sv = JSON.parse(localStorage.getItem("bdayMom2") || "{}");
+                if (!sv.msg) S.msg = DEF.msg;
+                if (!sv.from) S.from = DEF.from;
+            } catch (e) {}
+            CARDS.length = 0;
+            CARDS.push(
+                [
+                    "💖",
+                    "Thank You For Life",
+                    "You carried me, gave birth to me, and loved me before you even knew who I would become. I owe you everything, Ma.",
+                ],
+                [
+                    "🌙",
+                    "Thank You For Your Sleepless Nights",
+                    "Every night you stayed awake worrying, praying, and caring for me. I felt your love even in the dark.",
+                ],
+                [
+                    "🤲",
+                    "Thank You For Your Sacrifices",
+                    "I only saw a little of what you gave up for me. I know there is so much more that I never saw.",
+                ],
+                [
+                    "🙏",
+                    "Thank You For Your Prayers",
+                    "Wherever I go, your prayers walk with me. I am never alone because of you.",
+                ],
+                [
+                    "💪",
+                    "Thank You For Believing In Me",
+                    "When I wanted to give up, I remembered your faith in me, and I kept going.",
+                ],
+                [
+                    "🏡",
+                    "Thank You For Being My Home",
+                    "Even far away in Dujali, you are still the safest place my heart knows.",
+                ],
+            );
+            PROMISES.length = 0;
+            PROMISES.push(
+                "I will call you more often, even when I am busy, because you deserve to hear my voice.",
+                "I will come to see you in Dujali and hug you for a very long time.",
+                "I will study hard and make every sacrifice you made worth it.",
+                "I will take care of you the way you took care of me.",
+                "I will never let you carry everything alone again.",
+            );
+            NOTES.length = 0;
+            NOTES.push(
+                "Ma, I wish I could hug you right now. I miss you more than I can say. 🤗",
+                "Thank you for loving me even when I was hard to love. 💖",
+                "Everything good in me, I learned from you. 🌸",
+                "I am sorry for the times I made you worry. You never deserved that. 🥹",
+                "Wherever I go, I carry you with me, Ma. 🏡",
+                "Every time I feel tired, I remember your sacrifices, and I find the strength to keep going. 💪",
+                "You never asked for anything in return. I will spend my whole life giving back to you. 🎁",
+                "I miss your voice, your hugs, and the way you worry about me. 🥺",
+                "You are the strongest woman I know, and I am so proud to be your child. 🌹",
+                "Daghang salamat, Ma. Palangga tika kaayo. Forever. 💕",
+            );
+            QUOTES.length = 0;
+            QUOTES.push(
+                "“Thank you for every sacrifice you made for me.”",
+                "“I only saw a little of what you gave up. I know there was so much more.”",
+                "“Distance can’t break the love of a mother and her child.”",
+                "“Daghang salamat, Ma. Palangga tika.”",
+            );
+            DEF.msg = `Ma,
+
+Today is your birthday, and my heart is so full and so heavy at the same time. Full, because I am so thankful for you. Heavy, because I am here in Panabo and I can’t hug you the way I want to.
+
+Thank you for giving me life. Before I could even say your name, you were already loving me, worrying about me, and praying for me. Thank you for every sleepless night. Thank you for every time you put me first, even when no one saw it.
+
+I know I saw only a small part of what you gave up for me. There are sacrifices I will never know about, because you never complained and you never asked for anything back. Ma, I see that now. I see how strong you had to be.
+
+Thank you for believing in me when I didn’t believe in myself. Every time I wanted to give up, I remembered your faith in me, and I kept going. Everything good in me, I got from you.
+
+I’m sorry, Ma. I’m sorry for the times I was stubborn, for the times I made you worry, and for the times I forgot to say thank you. You deserved better words from me. I am saying them now, with all my heart.
+
+I promise I will make all your sacrifices worth it. One day, I will take care of you the way you took care of me. You will never have to carry everything alone again.
+
+Even when we are far apart, you are my home. Wherever I go, I carry you with me.
+
+Happy Birthday, Mama. Daghang salamat sa tanan. I love you more than I know how to say. 💕`;
+            try {
+                const sv = JSON.parse(localStorage.getItem("bdayMom2") || "{}");
+                if (!sv.msg) S.msg = DEF.msg;
+            } catch (e) {}
+            CARDS[5][2] =
+                "Even when we are apart, you are still the safest place my heart knows.";
+            PROMISES[1] =
+                "I will come to see you and hug you for a very long time.";
+            DEF.msg = DEF.msg.replace(
+                "Heavy, because I am here in Panabo and I can’t hug you",
+                "Heavy, because I can’t hug you",
+            );
+            DEF.from = "With all my love";
+            try {
+                const sv = JSON.parse(localStorage.getItem("bdayMom2") || "{}");
+                if (!sv.msg) S.msg = DEF.msg;
+                if (!sv.from) S.from = DEF.from;
+            } catch (e) {}
+            const persist = () => {
+                try {
+                    localStorage.setItem("bdayMom2", JSON.stringify(S));
+                } catch (e) {}
+            };
+            const COL = [
+                "#ff5c8a",
+                "#ffd97a",
+                "#7fd6ff",
+                "#b28dff",
+                "#7dffb0",
+                "#ff9d5c",
+            ];
+
+            for (let i = 0; i < 70; i++) {
+                const s = document.createElement("i");
+                s.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation-delay:${Math.random() * 3}s`;
+                $("#stars").appendChild(s);
+            }
+            $("#cards").innerHTML = CARDS.map(
+                (c) =>
+                    `<div class="card"><span class="e">${c[0]}</span><h3>${c[1]}</h3><p>${c[2]}</p></div>`,
+            ).join("");
+            $("#promises").innerHTML = PROMISES.map(
+                (p) => `<li>💛 ${p}</li>`,
+            ).join("");
+
+            function render() {
+                setTimeout(show, 0);
+                $("#name").textContent = S.name;
+                $("#from").textContent = S.from;
+                $("#dear").textContent = "Dear " + S.name + ",";
+                document.querySelectorAll(".pola").forEach((p) => {
+                    const u = S.photos[p.dataset.i],
+                        ph = p.querySelector(".ph");
+                    if (u) {
+                        ph.innerHTML = "";
+                        const im = new Image();
+                        im.src = u;
+                        im.alt = "Photo " + (+p.dataset.i + 1);
+                        ph.appendChild(im);
+                    } else
+                        ph.innerHTML = "<span><b>📷</b>Tap to add photo</span>";
+                });
+            }
+            render();
+
+            const NEVER = [
+                "I never said thank you for the nights you stayed up waiting for me to come home.",
+                "I never said sorry for the times I raised my voice, and you still hugged me.",
+                "I never said how proud I am to be your child.",
+                "I never said that when I’m scared, I still just want my Mama.",
+                "Salamat sa tanan, Ma. Palangga tika. Mahal na mahal kita. 💖",
+            ];
+            NEVER.length = 0;
+            NEVER.push(
+                "I never said thank you enough for the nights you waited up for me.",
+                "I never said sorry for the times I was stubborn, and you still forgave me.",
+                "I never said how much I miss you here in Panabo. Being away from you is the hardest part.",
+                "I never said that when I feel tired and alone, I think of you, and I find my strength.",
+                "Daghang salamat, Ma. Palangga tika kaayo. 💖",
+            );
+            const _nv = $("#never");
+            if (_nv)
+                _nv.innerHTML = NEVER.map((p) => `<li>💛 ${p}</li>`).join("");
+            function SC() {
+                return [
+                    {
+                        t: [
+                            S.name + "...",
+                            "before anything else,",
+                            "I just want to say something.",
+                        ],
+                        p: -1,
+                    },
+                    {
+                        t: [
+                            "You carried me before I could walk.",
+                            "You held my hand before I could stand.",
+                        ],
+                        p: 0,
+                    },
+                    {
+                        t: [
+                            "Every sleepless night.",
+                            "Every meal you skipped so we could eat.",
+                            "Every prayer you whispered for me.",
+                        ],
+                        p: 1,
+                    },
+                    {
+                        t: [
+                            "I may not say it often,",
+                            "but I see everything you do.",
+                            "And I am so grateful.",
+                        ],
+                        p: 2,
+                    },
+                    {
+                        t: [
+                            "So today...",
+                            "this is all for you.",
+                            "Happy Birthday, " + S.name + " 💖",
+                        ],
+                        p: -1,
+                    },
+                ];
+            }
+            let lc, lm;
+            function nt(f, t, d, v) {
+                const o = lc.createOscillator(),
+                    g = lc.createGain();
+                o.type = "triangle";
+                o.frequency.value = f;
+                g.gain.setValueAtTime(0, t);
+                g.gain.linearRampToValueAtTime(v, t + 0.02);
+                g.gain.exponentialRampToValueAtTime(0.001, t + d);
+                o.connect(g).connect(lm);
+                o.start(t);
+                o.stop(t + d + 0.05);
+            }
+            function playLullaby() {
+                try {
+                    lc = new (
+                        window.AudioContext || window.webkitAudioContext
+                    )();
+                    lm = lc.createGain();
+                    lm.gain.value = 0.55;
+                    const dl = lc.createDelay(),
+                        fb = lc.createGain();
+                    dl.delayTime.value = 0.38;
+                    fb.gain.value = 0.38;
+                    lm.connect(dl);
+                    dl.connect(fb);
+                    fb.connect(dl);
+                    dl.connect(lc.destination);
+                    lm.connect(lc.destination);
+                    const CH = [
+                            [0, 4, 7],
+                            [7, 11, 14],
+                            [9, 12, 16],
+                            [4, 7, 11],
+                            [5, 9, 12],
+                            [0, 4, 7],
+                            [5, 9, 12],
+                            [7, 11, 14],
+                        ],
+                        base = 196;
+                    let t = lc.currentTime + 0.2;
+                    for (let r = 0; r < 3; r++)
+                        CH.forEach((c) => {
+                            [0, 1, 2, 1, 2, 1, 0, 2].forEach((ix, i) =>
+                                nt(
+                                    base *
+                                        Math.pow(
+                                            2,
+                                            (c[ix] + (i % 2 ? 12 : 0)) / 12,
+                                        ),
+                                    t + i * 0.5,
+                                    1.8,
+                                    0.16,
+                                ),
+                            );
+                            nt(
+                                (base / 2) * Math.pow(2, c[0] / 12),
+                                t,
+                                3.5,
+                                0.22,
+                            );
+                            t += 4;
+                        });
+                } catch (e) {}
+            }
+            function runStory(done) {
+                const st = $("#story"),
+                    tx = st.querySelector(".stxt"),
+                    bg = st.querySelector(".sbg");
+                let over = false;
+                tx.innerHTML = "";
+                st.classList.remove("fade");
+                st.classList.add("on");
+                for (let i = 0; i < 28; i++) {
+                    const f = document.createElement("i");
+                    f.className = "ff";
+                    f.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation-delay:${Math.random() * 6}s;animation-duration:${6 + Math.random() * 6}s`;
+                    st.appendChild(f);
+                }
+                try {
+                    if (lc) lc.close();
+                } catch (e) {}
+                playLullaby();
+                const end = () => {
+                    if (over) return;
+                    over = true;
+                    st.classList.add("fade");
+                    try {
+                        lm.gain.setValueAtTime(lm.gain.value, lc.currentTime);
+                        lm.gain.linearRampToValueAtTime(
+                            0,
+                            lc.currentTime + 1.5,
+                        );
+                        setTimeout(() => lc.close(), 1700);
+                    } catch (e) {}
+                    setTimeout(() => {
+                        st.classList.remove("on", "fade");
+                        st.querySelectorAll(".ff").forEach((f) => f.remove());
+                        bg.classList.remove("on");
+                        done && done();
+                    }, 1500);
+                };
+                $("#skip").onclick = end;
+                const sc = SC();
+                let k = 0;
+                const next = () => {
+                    if (over) return;
+                    if (k >= sc.length) return end();
+                    const s = sc[k++];
+                    tx.innerHTML = "";
+                    const u = S.photos[s.p];
+                    bg.classList.remove("on");
+                    if (u) {
+                        bg.style.backgroundImage = `url('${u}')`;
+                        void bg.offsetWidth;
+                        bg.classList.add("on");
+                    }
+                    let j = 0;
+                    const line = () => {
+                        if (over) return;
+                        if (j < s.t.length) {
+                            const p = document.createElement("p");
+                            p.textContent = s.t[j++];
+                            tx.appendChild(p);
+                            void p.offsetWidth;
+                            p.classList.add("in");
+                            setTimeout(line, 2000);
+                        } else {
+                            setTimeout(() => {
+                                tx.querySelectorAll("p").forEach((p) =>
+                                    p.classList.remove("in"),
+                                );
+                                setTimeout(next, 1400);
+                            }, 2200);
+                        }
+                    };
+                    line();
+                };
+                next();
+            }
+            $("#replay").onclick = () => runStory(() => celebrate());
+            const hc = $("#hc"),
+                hx = hc.getContext("2d"),
+                HP = [];
+            let hOn = false,
+                ht = 0;
+            for (let i = 0; i < 240; i++) {
+                const t = Math.random() * 6.283,
+                    s = Math.sqrt(Math.random()) * 7;
+                HP.push({
+                    x: Math.random() * 320,
+                    y: Math.random() * 300,
+                    tx: 160 + 16 * Math.pow(Math.sin(t), 3) * s,
+                    ty:
+                        150 -
+                        (13 * Math.cos(t) -
+                            5 * Math.cos(2 * t) -
+                            2 * Math.cos(3 * t) -
+                            Math.cos(4 * t)) *
+                            s,
+                    ph: Math.random() * 6,
+                });
+            }
+            function heartLoop() {
+                hx.clearRect(0, 0, 320, 300);
+                ht += 0.04;
+                const bt = 1 + 0.06 * Math.sin(ht * 3);
+                HP.forEach((p) => {
+                    if (hOn) {
+                        p.x += (p.tx - p.x) * 0.04;
+                        p.y += (p.ty - p.y) * 0.04;
+                    }
+                    const x = 160 + (p.x - 160) * bt,
+                        y = 150 + (p.y - 150) * bt;
+                    hx.fillStyle = `hsla(${340 + Math.sin(p.ph + ht) * 20},100%,${65 + Math.sin(p.ph + ht * 2) * 15}%,.9)`;
+                    hx.beginPath();
+                    hx.arc(x, y, 1.9, 0, 7);
+                    hx.fill();
+                });
+                requestAnimationFrame(heartLoop);
+            }
+            heartLoop();
+            new IntersectionObserver(
+                (es) =>
+                    es.forEach((e) => {
+                        if (e.isIntersecting) hOn = true;
+                    }),
+                { threshold: 0.3 },
+            ).observe(hc);
+            function lantern() {
+                const b = document.createElement("div");
+                b.className = "lantern";
+                b.style.cssText = `left:${Math.random() * 95}%;--dx:${(Math.random() - 0.5) * 100}px;animation-duration:${14 + Math.random() * 8}s`;
+                $("#rain").appendChild(b);
+                setTimeout(() => b.remove(), 23000);
+            }
+            $("#hug").onclick = () => {
+                for (let i = 0; i < 22; i++) {
+                    const h = document.createElement("div");
+                    h.className = "hug";
+                    h.textContent = ["🤗", "💖", "💕", "💗"][i % 4];
+                    h.style.cssText =
+                        "left:" +
+                        (Math.random() * 90 + 5) +
+                        "%;--dx:" +
+                        (Math.random() - 0.5) * 140 +
+                        "px;animation-delay:" +
+                        i * 0.08 +
+                        "s";
+                    document.body.appendChild(h);
+                    setTimeout(() => h.remove(), 5600);
+                }
+                const t = $("#toast");
+                t.textContent = "🤗 A big hug from me to you, Ma!";
+                t.classList.add("on");
+                setTimeout(() => t.classList.remove("on"), 4200);
+                celebrate();
+            };
+            $("#cake").addEventListener("click", () => {
+                $("#wishes").classList.toggle("show", blown);
+            });
+            var si = 0;
+            function slide() {
+                const im = document.querySelectorAll("#show img");
+                if (!im.length) return;
+                im.forEach((x, i) =>
+                    x.classList.toggle("on", i === si % im.length),
+                );
+                si++;
+            }
+            function show() {
+                const sh = $("#show");
+                if (!sh) return;
+                sh.innerHTML =
+                    S.photos
+                        .filter(Boolean)
+                        .map((u) => `<img src="${u}" alt="">`)
+                        .join("") ||
+                    '<span style="opacity:.7">Add photos above to see a memory slideshow 📸</span>';
+                si = 0;
+                slide();
+            }
+            setInterval(slide, 4500);
+            let tw,
+                typed = false;
+            function typeMsg() {
+                clearInterval(tw);
+                const el = $("#msg");
+                el.textContent = "";
+                let i = 0;
+                tw = setInterval(() => {
+                    el.textContent = S.msg.slice(0, ++i);
+                    if (i >= S.msg.length) clearInterval(tw);
+                }, 34);
+            }
+            let qi = 0;
+            function quote() {
+                const q = $("#quote");
+                q.style.opacity = 0;
+                setTimeout(() => {
+                    q.textContent = QUOTES[qi++ % QUOTES.length];
+                    q.style.opacity = 1;
+                }, 600);
+            }
+
+            let slot = 0;
+            function readPhoto(f, cb) {
+                if (!f) return;
+                const r = new FileReader();
+                r.onload = () => {
+                    const im = new Image();
+                    im.onload = () => {
+                        const k = Math.min(
+                                1,
+                                700 / Math.max(im.width, im.height),
+                            ),
+                            c = document.createElement("canvas");
+                        c.width = im.width * k;
+                        c.height = im.height * k;
+                        c.getContext("2d").drawImage(
+                            im,
+                            0,
+                            0,
+                            c.width,
+                            c.height,
+                        );
+                        cb(c.toDataURL("image/jpeg", 0.82));
+                    };
+                    im.src = r.result;
+                };
+                r.readAsDataURL(f);
+            }
+            document.querySelectorAll(".pola").forEach(
+                (p) =>
+                    (p.onclick = () => {
+                        slot = +p.dataset.i;
+                        $("#pick").click();
+                    }),
+            );
+            $("#pick").onchange = (e) => {
+                readPhoto(e.target.files[0], (d) => {
+                    S.photos[slot] = d;
+                    persist();
+                    render();
+                    celebrate();
+                });
+                e.target.value = "";
+            };
+
+            function balloon() {
+                const b = document.createElement("div");
+                b.className = "balloon";
+                b.style.cssText = `left:${Math.random() * 95}%;background:${COL[(Math.random() * COL.length) | 0]};--dx:${(Math.random() - 0.5) * 160}px;animation-duration:${8 + Math.random() * 8}s;transform:scale(${0.7 + Math.random() * 0.7})`;
+                $("#balloons").appendChild(b);
+                setTimeout(() => b.remove(), 17000);
+            }
+            const EM = ["💖", "💗", "🌸", "🌷", "✨", "💕"];
+            function drop() {
+                const d = document.createElement("div");
+                d.className = "fall";
+                d.textContent = EM[(Math.random() * EM.length) | 0];
+                d.style.cssText += `left:${Math.random() * 100}%;font-size:${14 + Math.random() * 16}px;--dx:${(Math.random() - 0.5) * 120}px;animation-duration:${7 + Math.random() * 7}s;opacity:.8`;
+                $("#rain").appendChild(d);
+                setTimeout(() => d.remove(), 15000);
+            }
+
+            const cv = $("#fx"),
+                cx = cv.getContext("2d");
+            let W,
+                H,
+                P = [];
+            function size() {
+                W = cv.width = innerWidth;
+                H = cv.height = innerHeight;
+            }
+            size();
+            addEventListener("resize", size);
+            function confetti(n = 140) {
+                for (let i = 0; i < n; i++)
+                    P.push({
+                        t: "c",
+                        x: W / 2 + (Math.random() - 0.5) * W * 0.7,
+                        y: -10,
+                        vx: (Math.random() - 0.5) * 5,
+                        vy: 2 + Math.random() * 5,
+                        w: 6 + Math.random() * 7,
+                        h: 4 + Math.random() * 6,
+                        r: Math.random() * 6,
+                        vr: (Math.random() - 0.5) * 0.3,
+                        c: COL[(Math.random() * COL.length) | 0],
+                        l: 300,
+                    });
+            }
+            function firework(x, y) {
+                P.push({
+                    t: "r",
+                    x,
+                    y: H,
+                    tx: y,
+                    vx: 0,
+                    vy: -Math.max(4, (H - y) * 0.026),
+                    l: 200,
+                    c: "#fff",
+                });
+            }
+            function explode(x, y) {
+                const hue = Math.random() * 360,
+                    heart = Math.random() < 0.3;
+                for (let i = 0; i < 90; i++) {
+                    let vx, vy;
+                    const a = (Math.PI * 2 * i) / 90;
+                    if (heart) {
+                        vx = 16 * Math.pow(Math.sin(a), 3) * 0.28;
+                        vy =
+                            -(
+                                13 * Math.cos(a) -
+                                5 * Math.cos(2 * a) -
+                                2 * Math.cos(3 * a) -
+                                Math.cos(4 * a)
+                            ) * 0.28;
+                    } else {
+                        const s = 2 + Math.random() * 4.5;
+                        vx = Math.cos(a) * s;
+                        vy = Math.sin(a) * s;
+                    }
+                    P.push({
+                        t: "f",
+                        x,
+                        y,
+                        vx,
+                        vy,
+                        c: heart
+                            ? "#ff6b9d"
+                            : `hsl(${hue + Math.random() * 40},100%,65%)`,
+                        l: 80 + Math.random() * 30,
+                        m: 110,
+                    });
+                }
+            }
+            function pop(x, y, c) {
+                for (let i = 0; i < 30; i++) {
+                    const a = Math.random() * 6.28,
+                        s = 1 + Math.random() * 4;
+                    P.push({
+                        t: "f",
+                        x,
+                        y,
+                        vx: Math.cos(a) * s,
+                        vy: Math.sin(a) * s,
+                        c,
+                        l: 40,
+                        m: 40,
+                    });
+                }
+            }
+            function loop() {
+                cx.clearRect(0, 0, W, H);
+                for (let i = P.length - 1; i >= 0; i--) {
+                    const p = P[i];
+                    p.l--;
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.t === "r") {
+                        p.vy *= 0.975;
+                        P.push({
+                            t: "s",
+                            x: p.x,
+                            y: p.y,
+                            vx: 0,
+                            vy: 0.3,
+                            c: "#ffe9a8",
+                            l: 22,
+                            m: 22,
+                        });
+                        if (p.y <= p.tx || p.vy > -1.2) {
+                            explode(p.x, p.y);
+                            p.l = 0;
+                        }
+                    } else if (p.t === "c") {
+                        p.vy += 0.04;
+                        p.r += p.vr;
+                        cx.save();
+                        cx.translate(p.x, p.y);
+                        cx.rotate(p.r);
+                        cx.fillStyle = p.c;
+                        cx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                        cx.restore();
+                        if (p.y > H + 20) p.l = 0;
+                    } else {
+                        if (p.t === "f") p.vy += 0.05;
+                        p.vx *= 0.985;
+                        cx.globalAlpha = Math.max(p.l / (p.m || 30), 0);
+                        cx.fillStyle = p.c;
+                        cx.beginPath();
+                        cx.arc(p.x, p.y, p.t === "s" ? 1.8 : 2.4, 0, 7);
+                        cx.fill();
+                        cx.globalAlpha = 1;
+                    }
+                    if (p.l <= 0) P.splice(i, 1);
+                }
+                requestAnimationFrame(loop);
+            }
+            loop();
+            function celebrate() {
+                confetti(180);
+                for (let i = 0; i < 5; i++)
+                    setTimeout(
+                        () =>
+                            firework(
+                                W * (0.15 + Math.random() * 0.7),
+                                H * (0.15 + Math.random() * 0.4),
+                            ),
+                        i * 350,
+                    );
+            }
+            addEventListener("pointerdown", (e) => {
+                if (!e.target.closest("dialog,#gate,.balloon"))
+                    firework(e.clientX, e.clientY);
+            });
+            addEventListener("pointermove", (e) => {
+                if (Math.random() < 0.5)
+                    P.push({
+                        t: "s",
+                        x: e.clientX,
+                        y: e.clientY,
+                        vx: Math.random() - 0.5,
+                        vy: Math.random() * 0.8,
+                        c: "#ffd97a",
+                        l: 30,
+                        m: 30,
+                    });
+            });
+
+            let blown = false;
+            $("#cake").onclick = () => {
+                blown = !blown;
+                document
+                    .querySelectorAll(".flame")
+                    .forEach((f) => f.classList.toggle("off", blown));
+                $("#hint").textContent = blown
+                    ? "Make a wish, Mama! ✨ (tap again to relight)"
+                    : "Tap the cake to blow out the candles 🕯️";
+                if (blown) celebrate();
+            };
+
+            let ac,
+                playing = false;
+            const SEQ = [
+                [0, 0.75],
+                [0, 0.25],
+                [2, 1],
+                [0, 1],
+                [5, 1],
+                [4, 2],
+                [0, 0.75],
+                [0, 0.25],
+                [2, 1],
+                [0, 1],
+                [7, 1],
+                [5, 2],
+                [0, 0.75],
+                [0, 0.25],
+                [12, 1],
+                [9, 1],
+                [5, 1],
+                [4, 1],
+                [2, 2],
+                [10, 0.75],
+                [10, 0.25],
+                [9, 1],
+                [5, 1],
+                [7, 1],
+                [5, 2],
+            ];
+            function playSong() {
+                ac =
+                    ac ||
+                    new (window.AudioContext || window.webkitAudioContext)();
+                if (ac.state === "suspended") ac.resume();
+                playing = true;
+                $("#music").textContent = "⏸ Stop Song";
+                let t = ac.currentTime + 0.1;
+                const b = 0.46;
+                SEQ.forEach(([n, d]) => {
+                    const o = ac.createOscillator(),
+                        g = ac.createGain();
+                    o.type = "triangle";
+                    o.frequency.value = 261.63 * Math.pow(2, n / 12);
+                    g.gain.setValueAtTime(0, t);
+                    g.gain.linearRampToValueAtTime(0.25, t + 0.03);
+                    g.gain.exponentialRampToValueAtTime(0.001, t + d * b);
+                    o.connect(g).connect(ac.destination);
+                    o.start(t);
+                    o.stop(t + d * b + 0.05);
+                    const o2 = ac.createOscillator(),
+                        g2 = ac.createGain();
+                    o2.type = "sine";
+                    o2.frequency.value = 130.81 * Math.pow(2, n / 12);
+                    g2.gain.setValueAtTime(0, t);
+                    g2.gain.linearRampToValueAtTime(0.18, t + 0.05);
+                    g2.gain.exponentialRampToValueAtTime(0.001, t + d * b);
+                    o2.connect(g2).connect(ac.destination);
+                    o2.start(t);
+                    o2.stop(t + d * b + 0.05);
+                    t += d * b;
+                });
+                setTimeout(
+                    () => {
+                        if (playing) {
+                            playing = false;
+                            $("#music").textContent = "🎵 Play Song";
+                        }
+                    },
+                    (t - ac.currentTime) * 1000,
+                );
+            }
+            $("#music").onclick = () => {
+                if (playing) {
+                    ac.close();
+                    ac = null;
+                    playing = false;
+                    $("#music").textContent = "🎵 Play Song";
+                } else playSong();
+            };
+
+            let last = -1;
+            $("#jar").onclick = () => {
+                let i;
+                do {
+                    i = (Math.random() * NOTES.length) | 0;
+                } while (i === last);
+                last = i;
+                const n = $("#note");
+                n.classList.remove("show");
+                void n.offsetWidth;
+                n.textContent = NOTES[i];
+                n.classList.add("show");
+                $("#jar").textContent = "Open Another Note 💌";
+                confetti(50);
+            };
+
+            const io = new IntersectionObserver(
+                (es) =>
+                    es.forEach((e) => {
+                        if (e.isIntersecting) {
+                            e.target.classList.add("in");
+                            if (e.target.id === "msgbox" && !typed) {
+                                typed = true;
+                                typeMsg();
+                            }
+                        }
+                    }),
+                { threshold: 0.25 },
+            );
+            document.querySelectorAll(".card").forEach((c, i) => {
+                c.style.transitionDelay = i * 0.12 + "s";
+                io.observe(c);
+            });
+            document.querySelectorAll(".promises li").forEach((c, i) => {
+                c.style.transitionDelay = i * 0.15 + "s";
+                io.observe(c);
+            });
+            $(".letter").id = "msgbox";
+            io.observe($(".letter"));
+
+            const dlg = $("#dlg");
+            $("#edit").onclick = () => {
+                $("#iName").value = S.name;
+                $("#iMsg").value = S.msg;
+                $("#iFrom").value = S.from;
+                dlg.showModal();
+            };
+            $("#cancel").onclick = () => dlg.close();
+            $("#clr").onclick = () => {
+                S.photos = ["", "", ""];
+                persist();
+                render();
+            };
+            $("#save").onclick = () => {
+                S.name = $("#iName").value.trim() || DEF.name;
+                S.msg = $("#iMsg").value.trim() || DEF.msg;
+                S.from = $("#iFrom").value.trim() || DEF.from;
+                persist();
+                render();
+                dlg.close();
+                typeMsg();
+                celebrate();
+            };
+            $("#celebrate").onclick = celebrate;
+
+            $("#open").onclick = () => {
+                $("#gate").classList.add("gone");
+                const cd = $("#cd"),
+                    sp = cd.firstElementChild;
+                cd.classList.add("on");
+                let n = 3;
+                const go = () => {
+                    if (n > 0) {
+                        sp.style.animation = "none";
+                        void sp.offsetWidth;
+                        sp.style.animation = "";
+                        sp.textContent = n--;
+                        setTimeout(go, 900);
+                    } else {
+                        cd.classList.remove("on");
+                        start();
+                    }
+                };
+                go();
+            };
+            $("#open").onclick = () => {
+                $("#gate").classList.add("gone");
+                runStory(start);
+            };
+            function SC() {
+                return [
+                    {
+                        t: [
+                            S.name + "...",
+                            "I know I am in Panabo,",
+                            "and you are in Dujali.",
+                        ],
+                        p: -1,
+                    },
+                    { t: ["But no distance", "can make me forget you."], p: 0 },
+                    {
+                        t: [
+                            "Thank you for every sacrifice.",
+                            "Thank you for every meal you cooked.",
+                            "Thank you for every prayer you whispered for me.",
+                        ],
+                        p: 1,
+                    },
+                    {
+                        t: [
+                            "Thank you for believing in me",
+                            "even when I doubted myself.",
+                            "Everything I am, I owe to you.",
+                        ],
+                        p: 2,
+                    },
+                    {
+                        t: [
+                            "Today I wish I could hug you,",
+                            "but my heart is with you, Ma.",
+                        ],
+                        p: -1,
+                    },
+                    {
+                        t: [
+                            "Happy Birthday, " + S.name + ".",
+                            "Daghang salamat. Palangga tika. 💖",
+                        ],
+                        p: -1,
+                    },
+                ];
+            }
+            function SC() {
+                return [
+                    {
+                        t: [
+                            S.name + "...",
+                            "it is not easy for me to say these words,",
+                            "so please let me say them now.",
+                        ],
+                        p: -1,
+                    },
+                    {
+                        t: [
+                            "Even when we are apart,",
+                            "you are never far from my heart.",
+                        ],
+                        p: 0,
+                    },
+                    {
+                        t: [
+                            "Before I could walk, you carried me.",
+                            "Before I could speak, you understood me.",
+                            "Before I knew how to love,",
+                            "you loved me first.",
+                        ],
+                        p: 1,
+                    },
+                    {
+                        t: [
+                            "Every sleepless night.",
+                            "Every worry you kept to yourself.",
+                            "Every prayer whispered for me.",
+                            "I know. I remember. And I thank you.",
+                        ],
+                        p: 2,
+                    },
+                    {
+                        t: [
+                            "I am sorry for the times I forgot to say it.",
+                            "So please hear me now.",
+                            "Thank you, Ma. Thank you for everything.",
+                        ],
+                        p: 0,
+                    },
+                    {
+                        t: [
+                            "Everything good in me,",
+                            "I learned from you.",
+                            "Everything I will become,",
+                            "I will do for you.",
+                        ],
+                        p: 1,
+                    },
+                    {
+                        t: [
+                            "Today I wish I could hug you tight.",
+                            "But my heart is with you, Ma.",
+                            "Always.",
+                        ],
+                        p: 2,
+                    },
+                    {
+                        t: [
+                            "Happy Birthday, " + S.name + ".",
+                            "Daghang salamat. Palangga tika. 💖",
+                        ],
+                        p: -1,
+                    },
+                ];
+            }
+            function start() {
+                for (let i = 0; i < 10; i++) setTimeout(balloon, i * 300);
+                setInterval(balloon, 1200);
+                setInterval(drop, 700);
+                quote();
+                setInterval(quote, 6000);
+                setInterval(shoot, 3500);
+                setInterval(lantern, 2600);
+                celebrate();
+                playSong();
+            }
+            function shoot() {
+                const s = document.createElement("div");
+                s.className = "shoot";
+                s.style.cssText =
+                    "left:" +
+                    (40 + Math.random() * 60) +
+                    "%;top:" +
+                    Math.random() * 40 +
+                    "%";
+                $("#stars").appendChild(s);
+                setTimeout(() => s.remove(), 1500);
+            }
+            $("#balloons").addEventListener("click", (e) => {
+                const b = e.target.closest(".balloon");
+                if (!b) return;
+                const r = b.getBoundingClientRect();
+                pop(
+                    r.left + 27,
+                    r.top + 34,
+                    getComputedStyle(b).backgroundColor,
+                );
+                b.remove();
+            });
+            document.querySelectorAll(".pola").forEach((p) => {
+                p.addEventListener("pointermove", (e) => {
+                    const r = p.getBoundingClientRect(),
+                        x = (e.clientX - r.left) / r.width - 0.5,
+                        y = (e.clientY - r.top) / r.height - 0.5;
+                    p.style.transition = "transform .1s";
+                    p.style.transform = `perspective(700px) rotateY(${x * 24}deg) rotateX(${-y * 24}deg) scale(1.08)`;
+                });
+                p.addEventListener("pointerleave", () => {
+                    p.style.transition = "";
+                    p.style.transform = "";
+                });
+            });
+            const TH = ["", "gold", "ocean"];
+            let ti = 0;
+            $("#theme").onclick = () => {
+                ti = (ti + 1) % 3;
+                if (ti) document.documentElement.dataset.theme = TH[ti];
+                else delete document.documentElement.dataset.theme;
+                celebrate();
+            };
+            addEventListener("scroll", () => {
+                $("#prog").style.width =
+                    (scrollY /
+                        Math.max(
+                            1,
+                            document.documentElement.scrollHeight - innerHeight,
+                        )) *
+                        100 +
+                    "%";
+            });
+            const _m = $("#mic");
+            if (_m)
+                _m.onclick = async () => {
+                    try {
+                        const st = await navigator.mediaDevices.getUserMedia({
+                                audio: true,
+                            }),
+                            a = new (
+                                window.AudioContext || window.webkitAudioContext
+                            )(),
+                            an = a.createAnalyser();
+                        an.fftSize = 512;
+                        a.createMediaStreamSource(st).connect(an);
+                        const d = new Uint8Array(an.fftSize);
+                        let n = 0;
+                        $("#hint").textContent =
+                            "🎤 Now blow toward your phone, Mama!";
+                        const stop = () => {
+                            clearInterval(t);
+                            st.getTracks().forEach((x) => x.stop());
+                            a.close();
+                        };
+                        const t = setInterval(() => {
+                            an.getByteTimeDomainData(d);
+                            let m = 0;
+                            d.forEach(
+                                (v) => (m = Math.max(m, Math.abs(v - 128))),
+                            );
+                            n = m > 70 ? n + 1 : 0;
+                            if (n > 4) {
+                                stop();
+                                if (!blown) $("#cake").click();
+                            }
+                        }, 80);
+                        setTimeout(stop, 20000);
+                    } catch (e) {
+                        $("#hint").textContent =
+                            "Mic is not available here, just tap the cake 🕯️";
+                    }
+                };
+        </script>
+    </body>
+</html>
